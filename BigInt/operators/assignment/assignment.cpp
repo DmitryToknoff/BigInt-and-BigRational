@@ -10,10 +10,11 @@ BigInt& BigInt::operator=(const BigInt &bi) {
 }
 
 
-BigInt& BigInt::operator=(const std::string num) {
+BigInt& BigInt::operator= (char* num) {
     if (num[0] == '-') {
         sign = false;
-        this->num = num.substr(1);
+        this->num = num;
+        this->num = this->num.substr(1);
     } else {
         this->num = num;
         sign = true;

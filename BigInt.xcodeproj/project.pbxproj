@@ -91,6 +91,7 @@
 				TargetAttributes = {
 					A7007CF22D8622EE00B3B5A0 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
 					};
 				};
 			};
@@ -242,6 +243,7 @@
 		A7007CFF2D8622EE00B3B5A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4CQ47K8AB;
 				EXECUTABLE_PREFIX = lib;
@@ -249,12 +251,15 @@
 				GCC_ENABLE_CPP_RTTI = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
 		A7007D002D8622EE00B3B5A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R4CQ47K8AB;
 				EXECUTABLE_PREFIX = lib;
@@ -262,6 +267,7 @@
 				GCC_ENABLE_CPP_RTTI = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};

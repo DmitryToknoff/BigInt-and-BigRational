@@ -1,9 +1,9 @@
-#include <iostream>
-#include <string>
-
 #ifndef BigInt_
+
 #define BigInt_
 
+#include <iostream>
+#include <string>
 
 #pragma GCC visibility push(default)
 #pragma once
@@ -17,12 +17,11 @@ public:
     BigInt();
     BigInt(const BigInt& bi);
     BigInt(long long num);
-    BigInt(const std::string& s);
+    BigInt(char* s);
     
-    ~BigInt();
-    
+    std::string get_string();
     BigInt& operator= (const BigInt& bi);
-    BigInt& operator= (const std::string num);
+    BigInt& operator= (char* num);
     BigInt& operator= (const long long num);
     BigInt& operator *= (const BigInt& bi);
     BigInt& operator /= (const BigInt& bi);
@@ -34,8 +33,11 @@ public:
     BigInt operator + (const BigInt& bi);
     BigInt& operator - ();
     bool operator < (const BigInt& bi);
+    bool operator > (const BigInt& bi);
+    bool operator >= (const BigInt& bi);
     bool operator <= (const BigInt& bi);
     bool operator == (const BigInt& bi);
+    bool operator != (const BigInt& bi);
     
     friend std::ostream& operator<< (std::ostream& os, const BigInt& bi);
     friend std::istream& operator>> (std::istream& is, const BigInt& bi);
