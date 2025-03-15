@@ -10,22 +10,20 @@
 
 class BigInt
 {
-    char* nums;
-    size_t size = 0;
+    std::string num;
     bool sign = true;
-    
-    
-    size_t get_size(const char* s);
     
 public:
     BigInt();
     BigInt(const BigInt& bi);
     BigInt(long long num);
-    BigInt(const char* s);
+    BigInt(const std::string& s);
     
     ~BigInt();
     
     BigInt& operator= (const BigInt& bi);
+    BigInt& operator= (const std::string num);
+    BigInt& operator= (const long long num);
     BigInt& operator *= (const BigInt& bi);
     BigInt& operator /= (const BigInt& bi);
     BigInt& operator += (const BigInt& bi);
