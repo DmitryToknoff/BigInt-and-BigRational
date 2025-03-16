@@ -33,7 +33,11 @@ public:
     BigInt operator / (const BigInt& bi);
     BigInt operator - (const BigInt& bi);
     BigInt operator + (const BigInt& bi);
-    BigInt& operator - ();
+    
+    BigInt& operator++ ();
+    BigInt& operator-- ();
+    BigInt operator++ (int);
+    BigInt operator-- (int);
     
     bool operator < (const BigInt& bi);
     bool operator > (const BigInt& bi);
