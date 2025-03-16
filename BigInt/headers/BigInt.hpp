@@ -34,6 +34,9 @@ public:
     BigInt operator - (const BigInt& bi);
     BigInt operator + (const BigInt& bi);
     
+    BigInt operator + ();
+    BigInt operator - ();
+    
     BigInt& operator++ ();
     BigInt& operator-- ();
     BigInt operator++ (int);
