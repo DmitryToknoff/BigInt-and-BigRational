@@ -20,9 +20,11 @@ public:
     BigInt(char* s);
     
     std::string get_string();
+    
     BigInt& operator= (const BigInt& bi);
     BigInt& operator= (char* num);
     BigInt& operator= (const long long num);
+    
     BigInt& operator *= (const BigInt& bi);
     BigInt& operator /= (const BigInt& bi);
     BigInt& operator += (const BigInt& bi);
@@ -32,6 +34,7 @@ public:
     BigInt operator - (const BigInt& bi);
     BigInt operator + (const BigInt& bi);
     BigInt& operator - ();
+    
     bool operator < (const BigInt& bi);
     bool operator > (const BigInt& bi);
     bool operator >= (const BigInt& bi);
@@ -43,6 +46,7 @@ public:
     friend std::istream& operator>> (std::istream& is, const BigInt& bi);
     
     void ToString();
+    friend BigInt abs(const BigInt& bi);
     
     
 };
