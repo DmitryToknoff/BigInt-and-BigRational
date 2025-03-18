@@ -67,9 +67,10 @@ public:
 
 
 std::string strip_leading_null(const std::string& s);
+void add_back_null(std::string& s, int count_null);
 bool verify_degree_of_ten(const std::string& s);
 std::pair<std::string, std::string> get_larger_and_smaller(const std::string& num1, const std::string& num2);
-void add_back_null(std::string& s, int count_null);
+std::pair<BigInt, BigInt> devide(const BigInt& divide, const BigInt& divisor);
 
 #pragma GCC visibility pop
 #endif

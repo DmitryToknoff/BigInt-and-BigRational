@@ -66,3 +66,9 @@ bool verify_degree_of_ten(const std::string& s) {
 void add_back_null(std::string& s, int count_null) {
     s += std::string(count_null, '0');
 }
+
+
+
+std::pair<BigInt, BigInt> devide(const BigInt &divide, const BigInt &divisor) {
+    return {};
+}
