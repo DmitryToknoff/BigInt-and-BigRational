@@ -45,3 +45,9 @@ BigInt::BigInt(long long num) {
 }
 
 
+BigInt::BigInt(int num) {
+    if (num < 0)
+        sign = false;
+    
+    this->num = std::to_string(abs(num));
+}

@@ -6,7 +6,7 @@ BigInt BigInt::operator + () {
 }
 
 
-BigInt BigInt::operator - () {
+BigInt BigInt::operator - () const {
     BigInt tmp = *this;
     
     if (tmp.num != "0") {

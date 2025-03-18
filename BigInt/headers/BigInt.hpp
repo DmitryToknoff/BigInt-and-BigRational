@@ -16,6 +16,7 @@ class BigInt
 public:
     BigInt();
     BigInt(const BigInt& bi);
+    BigInt(int num);
     BigInt(const std::string&);
     BigInt(long long num);
     BigInt(char* s);
@@ -29,14 +30,16 @@ public:
     BigInt& operator *= (const BigInt& bi);
     BigInt& operator /= (const BigInt& bi);
     BigInt& operator += (const BigInt& bi);
+    BigInt& operator %= (const BigInt& bi);
     BigInt& operator -= (const BigInt& bi);
     BigInt operator * (const BigInt& bi) const;
     BigInt operator / (const BigInt& bi) const;
+    BigInt operator % (const BigInt& bi) const;
     BigInt operator - (const BigInt& bi) const;
     BigInt operator + (const BigInt& bi) const;
     
     BigInt operator + ();
-    BigInt operator - ();
+    BigInt operator - () const;
     
     BigInt& operator++ ();
     BigInt& operator-- ();
@@ -57,7 +60,7 @@ public:
     bool operator != (long long x) const;
     
     friend std::ostream& operator<< (std::ostream& os, const BigInt& bi);
-    friend std::istream& operator>> (std::istream& is, const BigInt& bi);
+    friend std::istream& operator>> (std::istream& is, BigInt& bi);
     
     
     void ToString();
@@ -70,7 +73,6 @@ std::string strip_leading_null(const std::string& s);
 void add_back_null(std::string& s, int count_null);
 bool verify_degree_of_ten(const std::string& s);
 std::pair<std::string, std::string> get_larger_and_smaller(const std::string& num1, const std::string& num2);
-std::pair<BigInt, BigInt> devide(const BigInt& divide, const BigInt& divisor);
 
 #pragma GCC visibility pop
 #endif
