@@ -9,6 +9,12 @@ xcuserdata/
 *.xcscmblueprint
 *.xccheckout
 
+# Игнорировать все файлы workspace
+*.xcworkspace/
+
+# Игнорировать все файлы проекта
+*.xcodeproj/
+
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
