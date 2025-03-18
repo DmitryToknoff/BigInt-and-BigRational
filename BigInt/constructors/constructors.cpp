@@ -15,6 +15,14 @@ BigInt::BigInt(const BigInt& bi) {
     this->num = bi.num;
 }
 
+BigInt::BigInt(const std::string& s) {
+    if (s[0] == '-') {
+        sign = false;
+        num = s.substr(1);
+    } else
+        num = s;
+}
+
 
 BigInt::BigInt(char* s) {
     if (s[0] == '-') {

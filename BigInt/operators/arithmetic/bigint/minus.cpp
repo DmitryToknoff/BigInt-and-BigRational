@@ -1,51 +1,60 @@
 #include "BigInt.hpp"
 #include <string>
+#include <iostream>
 
 
 
 
-BigInt& BigInt::operator -= (const BigInt& bi) {
-    if (bi.num == "0") {return *this;}
-    
-    BigInt tmp = bi;
-    tmp.sign = !sign;
-    
-    if ((sign && !bi.sign) || (!sign && bi.sign)) {
+BigInt BigInt::operator - (const BigInt& bi) const {
+    if (sign && !bi.sign) {
+        BigInt tmp = bi;
+        tmp.sign = true;
         
-        *this += tmp;
-        
-        return *this;
+        return *this + tmp;
     }
     
-    if (bi.num == num) {sign = true; num = "0"; return *this;}
+    if (!this->sign && bi.sign) {
+        BigInt tmp = *this;
+        tmp.sign = true;
+        
+        return - (tmp + bi);
+    }
     
-    bool flag = true;
+    BigInt res;
+    
     std::string mx_value, mn_value;
     
-    if (abs(*this) > abs(tmp)) {
+    if (abs(*this) > abs(bi)) {
         mx_value = num;
-        mn_value = tmp.num;
+        mn_value = bi.num;
         
         if (!sign) {
-            flag = false;
+            res.sign = false;
         }
         
     } else {
-        mx_value = tmp.num;
+        mx_value = bi.num;
         mn_value = num;
+        
+        if (bi.sign)
+            res.sign = false;
         
     }
     
-    mn_value.insert(0, mx_value.size() - mn_value.size(), '0');
-    std::string res = "";
-    int cur;
+    mx_value.insert(0, (std::max(mx_value.size(), mn_value.size()) - mx_value.size()), '0');
+    mn_value.insert(0, (std::max(mx_value.size(), mn_value.size()) - mn_value.size()), '0');
     
-    long long i, j;
+    res.num = "";
+    
+    int cur;
+    int i, j;
+    
+    
     for (i = mx_value.size() - 1; i >= 0; --i) {
         cur = mx_value[i] - mn_value[i];
         
         if (cur < 0) {
-            for (j = i -1; j >= 0; --j) {
+            for (j = i - 1; j >= 0; --j) {
                 if (mx_value[j] != '0') {
                     --mx_value[j];
                     break;
@@ -62,27 +71,24 @@ BigInt& BigInt::operator -= (const BigInt& bi) {
             cur += 10;
         }
         
-        res = std::to_string(cur) + res;
+        res.num = std::to_string(cur) + res.num;
     }
     
-    i = 0;
+    res.num = strip_leading_null(res.num);
     
-    while (res[i] == '0') {
-        ++i;
+    if (res.num == "0") {
+        res.sign = true;
     }
     
-    num = res.substr(i);
-    
-    
-    return *this;
+    return res;
+
 }
 
 
-
-
-BigInt BigInt::operator- (const BigInt& bi) {
-    BigInt tmp = *this;
-    tmp -= bi;
+BigInt& BigInt::operator -= (const BigInt& bi) {
+    BigInt tmp = *this - bi;
+    num = tmp.num;
+    sign = tmp.sign;
     
-    return tmp;
+    return *this;
 }
