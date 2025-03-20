@@ -34,8 +34,6 @@ std::string BigRational::Decimal(int precision) const {
     BigInt tmp = num / dem, rem = num % dem;
     
     std::string decimal = tmp.get_string() + ".";
-    if ((*this).sum_sign() == 1) decimal = "-" + decimal;
-    
     
     for (int i = 0; i < precision; ++i) {
         rem *= BigInt(10);

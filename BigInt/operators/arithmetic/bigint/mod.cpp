@@ -21,6 +21,8 @@ BigInt BigInt::operator % (const BigInt& bi) const {
     
     remainder.sign = this->sign;
     
+    if (remainder.num == "0") remainder.sign = true;
+    
     return remainder;
 }
 
