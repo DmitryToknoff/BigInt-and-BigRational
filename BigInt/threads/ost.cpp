@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "BigInt.hpp"
+#include "BigRat.hpp"
 
 
 std::ostream& operator<< (std::ostream& os, const BigInt& bi) {
@@ -10,4 +11,11 @@ std::ostream& operator<< (std::ostream& os, const BigInt& bi) {
         os << bi.num[i];
     
     return os;
+}
+
+
+std::ostream& operator<< (std::ostream& os, const BigRational& br) {
+    os << br.Decimal();
+    return os;
+    
 }

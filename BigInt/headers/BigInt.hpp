@@ -8,8 +8,7 @@
 #pragma GCC visibility push(default)
 #pragma once
 
-class BigInt
-{
+class BigInt {
     std::string num;
     bool sign = true;
     
@@ -65,7 +64,8 @@ public:
     
     void ToString();
     friend BigInt abs(const BigInt& bi);
-    
+    bool get_sign() const;
+    void set_sign(bool flag);
 };
 
 

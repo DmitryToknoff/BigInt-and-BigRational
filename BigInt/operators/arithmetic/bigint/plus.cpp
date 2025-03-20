@@ -33,7 +33,7 @@ BigInt BigInt::operator + (const BigInt& bi) const {
         sum = mx_value[i] - '0' + mn_value[i] - '0' + cur;
         
         res.num = std::to_string(sum%10) + res.num;
-        cur /= 10;
+        cur = sum / 10;
     }
     
     if (cur) {

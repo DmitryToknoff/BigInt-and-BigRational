@@ -1,4 +1,5 @@
 #include "BigInt.hpp"
+#include "BigRat.hpp"
 #include <string>
 
 
@@ -30,6 +31,29 @@ BigInt& BigInt::operator= (long long num) {
     }
     
     this->num = std::to_string(abs(num));
+    
+    return *this;
+}
+
+
+BigRational& BigRational::operator=(int x) {
+    num = x;
+    dem = 1;
+    
+    return *this;
+}
+
+BigRational& BigRational::operator=(const BigRational& br) {
+    num = br.num;
+    dem = br.dem;
+    
+    
+    return *this;
+}
+
+BigRational& BigRational::operator=(const BigInt& bi) {
+    num = bi;
+    dem = 1;
     
     return *this;
 }

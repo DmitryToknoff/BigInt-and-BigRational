@@ -1,6 +1,7 @@
 #include "BigInt.hpp"
 #include "BigRat.hpp"
 
+#include <iostream>
 #include <string>
 
 
@@ -51,3 +52,39 @@ BigInt::BigInt(int num) {
     
     this->num = std::to_string(abs(num));
 }
+
+
+BigRational::BigRational() {
+    num = "0";
+    dem = "1";
+}
+
+
+BigRational::BigRational(const BigInt& bi) {
+    num = bi;
+    dem = 1;
+}
+
+
+BigRational::BigRational(const BigRational& br) {
+    num = br.num;
+    dem = br.dem;
+}
+
+BigRational::BigRational(int num) {
+    this->num = num;
+    dem = 1;
+}
+
+BigRational::BigRational(long long num) {
+    this->num = num;
+    dem = 1;
+}
+
+BigRational::BigRational(const BigInt& num, const BigInt& dem) {
+    if (dem == 0) throw;
+    
+    this->num = num;
+    this->dem = dem;
+}
+

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "BigRat.hpp"
 #include "BigInt.hpp"
 
 
@@ -21,4 +22,24 @@ std::istream& operator >> (std::istream& is, BigInt& bi)  {
     return is;
 }
 
+
+std::istream& operator >> (std::istream& is, BigRational& br) {
+    std::string s;
+    is >> s;
+    
+    bool flag = s[0] == '-';
+    
+    if (flag) {
+        br.num = s.substr(1);
+        br.num.set_sign(false);
+    } else {
+        br.num = s;
+    }
+    
+    is >> s;
+    
+    br.dem = s;
+    
+    return is;
+}
 

@@ -93,3 +93,9 @@ BigInt& BigInt::operator *= (const BigInt& bi) {
 }
 
 
+
+
+BigInt operator * (int x, const BigInt& bi) {
+    return BigInt(x) * bi;
+}
+
